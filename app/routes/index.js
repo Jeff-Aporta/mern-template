@@ -1,14 +1,18 @@
-import apijson from "./api-json.js"; 
-import appcontrol from "./app-control.js"; 
-import authlogs from "./auth/logs.js"; 
+import apijson from "./api-json.js";
+import appcontrol from "./app-control.js";
+import authlogs from "./auth/logs.js";
 import path from "path";
 
 function react({ app }) {
   app.get("/", (req, res) => {
-    res.sendFile(path.join(global.__pathapp__, "client/build", "index.html"));
+    res.sendFile(
+      path.join(global.__pathapp__, "client", "build", "index.html")
+    );
   });
   app.get("*", (req, res) => {
-    res.sendFile(path.join(global.__pathapp__, "client/build", "index.html"));
+    res.sendFile(
+      path.join(global.__pathapp__, "client", "build", "index.html")
+    );
   });
 }
 
