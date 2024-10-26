@@ -1,20 +1,28 @@
 import apijson from "./api-json.js";
 import appcontrol from "./app-control.js";
 import authlogs from "./auth/logs.js";
-
 import path from "path";
 
 function react({ app }) {
+  // Define la ruta del archivo una sola vez
+  const filePath = path.join(global.__pathapp__, "client", "build", "index.html");
+
   app.get("/", (req, res) => {
-    const file = path.join("client", "build", "index.html");
-    console.log({ file });
-    res.sendFile(file, { root: global.__pathapp__ });
+    res.sendFile(filePath, (err) => {
+      if (err) {
+        console.error("Error enviando el archivo:", err);
+        res.status(err.status).end();
+      }
+    });
   });
 
   app.get("*", (req, res) => {
-    const file = path.join("client", "build", "index.html");
-    console.log({ file });
-    res.sendFile(file, { root: global.__pathapp__ });
+    res.sendFile(filePath, (err) => {
+      if (err) {
+        console.error("Error enviando el archivo:", err);
+        res.status(err.status).end();
+      }
+    });
   });
 }
 
