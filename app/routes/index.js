@@ -10,11 +10,13 @@ global.__pathapp__ = path.resolve(); // Esto establece la ruta absoluta en la ra
 // Función react
 function react({ app }) {
   app.get("/", (req, res) => {
-    res.sendFile(path.join(global.__pathapp__, "client", "build", "index.html"));
+    const file = path.join(global.__pathapp__, "client", "build", "index.html");
+    res.sendFile(file);
   });
-  
+
   app.get("*", (req, res) => {
-    res.sendFile(path.join(global.__pathapp__, "client", "build", "index.html"));
+    const file = path.join(global.__pathapp__, "client", "build", "index.html");
+    res.sendFile(file);
   });
 }
 
