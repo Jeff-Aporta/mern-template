@@ -5,7 +5,7 @@ import path from "path";
 
 function react({ app }) {
   // Define la ruta del archivo una sola vez
-  const filePath = path.join(global.__pathapp__, "client", "build", "index.html");
+  const filePath = path.resolve(global.__pathapp__, "client", "build", "index.html");
 
   app.get("/", (req, res) => {
     res.sendFile(filePath, (err) => {
