@@ -17,6 +17,9 @@ function RouteComponent() {
       K = homonim;
     }
   }
+  if (typeof componentsMap[K] == "function") {
+    return componentsMap[K]();
+  }
   return componentsMap[K];
 }
 

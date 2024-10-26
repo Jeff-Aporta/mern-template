@@ -1,35 +1,31 @@
-import express from 'express';
-import path from 'path';
-import cors from 'cors';
+import express from "express";
+import http from "http";
+import { Server } from "socket.io";
+import socketiomanager from "./app/server-socket/server-socket.js";
+import cors from "cors";
+import path from "path";
+import routes from "./app/routes/index.js";
+import pg from "./app/sql/pg/index.js";
 
-// Para trabajar con rutas, necesitamos usar el módulo 'url' para obtener el __dirname.
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+global.__pathapp__ = new URL(".", import.meta.url).pathname
+  .split("/")
+  .filter(Boolean)
+  .join("/");
 
+const port = process.env.PORT || 3000;
 const app = express();
-const PORT = process.env.PORT || 3000;
+const server = http.createServer(app);
+const io = new Server(server);
 
 app.use(cors()); // Permitir solicitudes de diferentes dominios
 app.use(express.json()); // Para parsear JSON
+app.use(express.static(path.join(global.__pathapp__, "client/build")));
+app.set("port", port);
 
-// Ruta para servir el frontend de React
-app.use(express.static(path.join(__dirname, 'client/build')));
+const packexpress = { app, pg, server, io };
+routes(packexpress);
+socketiomanager(packexpress);
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
-
-// Manejar otras rutas, puedes agregar tus APIs aquí
-app.get('/api', (req, res) => {
-    res.json({ message: '¡Hola desde el backend!' });
-});
-
-// Cualquier otra ruta que no esté definida devolverá la página principal de React
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
-
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+server.listen(port, () => {
+  console.log(`Servidor ejecutándose en http://localhost:${port}`);
 });
