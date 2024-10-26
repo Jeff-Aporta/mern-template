@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run build --prefix ./client && node index",
+    "install-all": "npm install",
     "start": "node index"
   },
   "keywords": [],
