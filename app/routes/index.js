@@ -5,10 +5,10 @@ import path from "path";
 
 function react({ app }) {
   app.get("/", (req, res) => {
-    res.sendFile(path.join(__pathapp__, "client/build", "index.html"));
+    res.sendFile(path.join(global.__pathapp__, "client/build", "index.html"));
   });
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__pathapp__, "client/build", "index.html"));
+    res.sendFile(path.join(global.__pathapp__, "client/build", "index.html"));
   });
 }
 
