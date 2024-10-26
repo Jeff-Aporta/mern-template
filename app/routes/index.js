@@ -6,15 +6,15 @@ import path from "path";
 
 function react({ app }) {
   app.get("/", (req, res) => {
-    const file = path.join(global.__pathapp__, "client", "build", "index.html");
+    const file = path.join("client", "build", "index.html");
     console.log({ file });
-    res.sendFile(file);
+    res.sendFile(file, { root: global.__pathapp__ });
   });
 
   app.get("*", (req, res) => {
-    const file = path.join(global.__pathapp__, "client", "build", "index.html");
+    const file = path.join("client", "build", "index.html");
     console.log({ file });
-    res.sendFile(file);
+    res.sendFile(file, { root: global.__pathapp__ });
   });
 }
 
