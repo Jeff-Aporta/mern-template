@@ -8,21 +8,11 @@ function react({ app }) {
   const filePath = path.join("client", "build", "index.html");
 
   app.get("/", (req, res) => {
-    res.sendFile(filePath, (err) => {
-      if (err) {
-        console.error("Error enviando el archivo:", err);
-        res.status(err.status).end();
-      }
-    });
+    res.sendFile(filePath);
   });
 
   app.get("*", (req, res) => {
-    res.sendFile(filePath, (err) => {
-      if (err) {
-        console.error("Error enviando el archivo:", err);
-        res.status(err.status).end();
-      }
-    });
+    res.sendFile(filePath);
   });
 }
 
