@@ -10,16 +10,17 @@ const test = !global.runPrototypes;
 
 (async () => {
   try {
-    if (process.env.connectionString) {
+    const url_postgresql = process.env.url_postgresql;
+    if (url_postgresql) {
       global.mypgsql = new Pool({
-        connectionString: process.env.connectionString,
+        connectionString: url_postgresql,
       });
     } else {
       global.mypgsql = new Client({
-        host: process.env.host,
-        user: process.env.user,
-        password: process.env.password,
-        port: 5432,
+        host: process.env.host_postgresql,
+        user: process.env.user_postgresql,
+        password: process.env.password_postgresql,
+        port: process.env.port_postgresql,
       });
       await global.mypgsql.connect();
     }
@@ -32,11 +33,10 @@ const test = !global.runPrototypes;
   }
 })();
 
-const PGInstance = PG();
-const TABLEInstance = TABLE(PGInstance);
+const _PG_ = PG();
+const _TABLE_ = TABLE(_PG_);
 
-const { CREATE_DATABASE, CREATE_TABLE, CHANGE_DATABASE, EXEC_QUERY } =
-  PGInstance;
+const { CREATE_DATABASE, CREATE_TABLE, CHANGE_DATABASE, EXEC_QUERY } = _PG_;
 const {
   GET_COLUMNS,
   GET_COLUMNS_TYPE,
@@ -46,7 +46,7 @@ const {
   CALC_TYPE,
   DELETE_ROW,
   READ_ROW,
-} = TABLEInstance;
+} = _TABLE_;
 
 const basic = {
   CREATE_DATABASE,

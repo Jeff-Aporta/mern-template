@@ -1,8 +1,12 @@
-import passport from "passport";
-import { Strategy as LocalStrategy } from "passport-local";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
+
+import RedisStore from "connect-redis";
+import redisClient from "./redis-client.js";
+
+import { Strategy as LocalStrategy } from "passport-local";
 
 // Configuración del middleware
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -14,6 +18,7 @@ const initializePassport = (app, pg) => {
 
   app.use(
     session({
+      store: new RedisStore({ client: redisClient }),
       secret: "tu_secreto",
       resave: false,
       saveUninitialized: true,
@@ -31,7 +36,8 @@ const initializePassport = (app, pg) => {
       },
       async (username, pwrd, done) => {
         try {
-          let user = { username, pwrd }; // Consulta a la base de datos
+          // Aquí realizarías una consulta real en la base de datos
+          let user = { username, pwrd }; // Cambia por la consulta real
           if (!user) {
             return done(null, false, { message: "Usuario no encontrado" });
           }
@@ -49,7 +55,7 @@ const initializePassport = (app, pg) => {
 
   passport.deserializeUser(async (id, done) => {
     try {
-      // Aquí deberías realizar la búsqueda del usuario por ID
+      // Realiza aquí la búsqueda real del usuario por ID en la base de datos
       let user = { id: "test", name: "test", password: "test" }; // Cambia esto por tu lógica
       done(null, user);
     } catch (error) {
@@ -61,8 +67,13 @@ const initializePassport = (app, pg) => {
 // Función para definir las rutas de autenticación
 const defineAuthRoutes = (app) => {
   app.get("/userlog/end", (req, res) => {
-    req.logout();
-    res.redirect("/");
+    req.logout((err) => {
+      if (err) {
+        console.error("Error en logout:", err);
+        return res.status(500).send("Error en logout");
+      }
+      res.redirect("/");
+    });
   });
 
   app.post(
