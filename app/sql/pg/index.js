@@ -12,6 +12,7 @@ const test = !global.runPrototypes;
   try {
     const url_postgresql = process.env.url_postgresql;
     if (url_postgresql) {
+      console.log({ url_postgresql });
       global.mypgsql = new Pool({
         connectionString: url_postgresql,
       });
@@ -23,10 +24,11 @@ const test = !global.runPrototypes;
         port: process.env.port_postgresql,
       });
       await global.mypgsql.connect();
+      setTimeout(async () => {
+        await CREATE_DATABASE({ DATABASE: process.env.db });
+        await CHANGE_DATABASE({ DATABASE: process.env.db });
+      }, 1000);
     }
-
-    await CREATE_DATABASE({ DATABASE: process.env.db });
-    await CHANGE_DATABASE({ DATABASE: process.env.db });
     console.log("PostgreSQL Connected!");
   } catch (error) {
     console.error("Error conectando a PostgreSQL:", error);

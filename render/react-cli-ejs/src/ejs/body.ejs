@@ -1,0 +1,25 @@
+<body>
+  <div class="app">
+    <script>
+      document.write(`
+        <style>
+          body, html {
+            --bg: ${isThemeDark ? "#121212" : "white"};
+            --c: ${!isThemeDark ? "black" : "white"};
+          }
+        </style>
+      `);
+    </script>
+
+    <style>
+      body,
+      html {
+        background-color: var(--bg);
+        color: var(--c);
+        min-height: 100vh;
+        min-width: 100vw;
+        overflow: hidden;
+      }
+    </style>
+  </div>
+</body>

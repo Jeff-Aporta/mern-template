@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('src/ejs/metas') %>
+
+    <script src="https://jeff-aporta.github.io/ASCIIMapLoader/index.js"></script>
+    <script src="/view/src/js/ASCII_MAP.js"></script>
+
+    <script>
+      const themename = localStorage.getItem("theme") ?? "dark";
+      const isThemeDark = themename == "dark";
+      const imgs = <%- JSON.stringify(imgs) %>;
+
+      runASCIIMapLoader_inLine(`
+        ${ASCII_MAP.WEB_REACT}
+        ${ASCII_MAP.ALLWAYS}
+
+        📄 <%- AppJSX %>
+
+        📄 /view/src/jsx/end.jsx
+      `);
+    </script>
+  </head>
+  <%- include('src/ejs/body') %>
+</html>
