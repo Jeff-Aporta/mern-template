@@ -6,6 +6,7 @@ import cors from "cors";
 import path from "path";
 import routes from "./app/routes/index.js";
 // import pg from "./app/sql/pg/index.js";
+
 let pg = 0;
 
 global.__pathapp__ = new URL(".", import.meta.url).pathname
@@ -19,9 +20,9 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 app.use(cors()); // Permitir solicitudes de diferentes dominios
-app.use(express.json()); // Para parsear JSON
-app.use(express.static(path.join(global.__pathapp__, "client", "build")));
 app.set("port", port);
+app.use(express.json()); // Para parsear JSON
+app.use(express.static(path.join("client", "build")));
 
 const packexpress = { app, pg, server, io };
 routes(packexpress);
