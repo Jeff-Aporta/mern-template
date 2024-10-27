@@ -1,0 +1,12 @@
+.fx-brighthover-2 {
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(2);
+  }
+}
+
+.centerized {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

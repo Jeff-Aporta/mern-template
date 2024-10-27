@@ -34,7 +34,6 @@ function LOAD_IMG_SZS(params) {
     .find((w) => width <= w);
 
   const imageUrl = src(sz);
-  console.log("Loading image from URL:", imageUrl);
 
   const img = (
     <img src={`${PUBLIC_URL}/${imageUrl}`} width={`${width}px`} {...p} alt="" />

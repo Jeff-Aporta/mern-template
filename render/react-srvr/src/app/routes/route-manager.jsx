@@ -25,7 +25,7 @@ function RouteComponent() {
 
 let pattern = "";
 
-const router = createBrowserRouter([
+const structure = [
   {
     path: "/",
     element: <RouteComponent />,
@@ -37,6 +37,8 @@ const router = createBrowserRouter([
       element: <RouteComponent />,
     };
   }),
-]);
+];
+
+const router = createBrowserRouter(structure);
 
 export default router;

@@ -28,3 +28,16 @@ html {
   display: flex;
   justify-content: space-between;
 }
+
+.fx-brighthover-2 {
+  transition: filter 0.3s;
+}
+.fx-brighthover-2:hover {
+  filter: brightness(2);
+}
+
+.centerized {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

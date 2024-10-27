@@ -2,10 +2,14 @@ function App() {
   return (
     <Themized>
       <Paper className="menu-top">
-        <img src={imgs.svg_logotext_banner_noslogan} width="200" alt="" />
-        <Button size="small" variant="contained" color="atentionGreen">
-          Botón
-        </Button>
+        <Link className="fx-brighthover-2 centerized" href="/">
+          <img
+            src={imgs.svg_logotext_banner_noslogan}
+            style={{ width: "200px", objectFit: "contain" }}
+            alt=""
+          />
+        </Link>
+        <Typography variant="h4">RENDER-CLI</Typography>
       </Paper>
       <br />
       <Paper className="container">
@@ -13,12 +17,18 @@ function App() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
             gap: "30px",
           }}
         >
           <Typography variant="h1">Bienvenido</Typography>
-          <img src={imgs.imgB_logotext_banner_slogan} width="400" alt="" />
+          <img
+            src={imgs.imgB_logotext_banner_slogan}
+            alt=""
+            style={{
+              width: "400px",
+              objectFit: "contain",
+            }}
+          />
         </div>
         <br />
         <hr />
@@ -37,7 +47,6 @@ function App() {
           elevation={4}
           style={{
             display: "flex",
-            alignItems: "center",
             gap: "30px",
           }}
         >
@@ -51,24 +60,24 @@ function App() {
           />
           <div>
             <Typography variant="h3">Características Principales</Typography>
-            <ul>
-              <li>
+            <div className="gap-15px">
+              <div className="jc-sp-bet gap-15px flex-wrap">
                 <strong>Mensajería Instantánea:</strong> Envía y recibe mensajes
                 en tiempo real con amigos y grupos.
-              </li>
-              <li>
+              </div>
+              <div className="jc-sp-bet gap-15px flex-wrap">
                 <strong>Chats de Grupo:</strong> Crea grupos para conversaciones
                 entre múltiples usuarios.
-              </li>
-              <li>
+              </div>
+              <div className="jc-sp-bet gap-15px flex-wrap">
                 <strong>Mensajes Multimedia:</strong> Comparte fotos, videos,
                 audios y GIFs de forma fácil y rápida.
-              </li>
-              <li>
+              </div>
+              <div className="jc-sp-bet gap-15px flex-wrap">
                 <strong>Modo Oscuro:</strong> Mantén una apariencia más cómoda
                 para los ojos en cualquier momento del día.
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </Paper>
       </Paper>

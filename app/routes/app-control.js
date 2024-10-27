@@ -6,4 +6,4 @@ export default ({ app, server }) => {
       process.exit();
     }, 1000);
   });
-};
+}; 

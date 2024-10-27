@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { emit, listen, end, channel, id } from "./app/client-socket/client-socket";
+import { emit, listen, end, channel, id } from "../app/js/sockets";
 
 const Index = () => {
   const [message, setMessage] = useState("");

@@ -16,11 +16,15 @@ html {
   border-radius: 20px !important;
 }
 
+.d-flex {
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
 
 .gap-15px {
+  @extend .d-flex;
   gap: 25px;
 }
 

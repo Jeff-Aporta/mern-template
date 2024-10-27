@@ -10,4 +10,4 @@ export default ({ app }) => {
       cmd: req.params["cmdjson"],
     });
   });
-};
+}; 

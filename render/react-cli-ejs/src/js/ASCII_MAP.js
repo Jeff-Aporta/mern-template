@@ -14,13 +14,13 @@ const ASCII_MAP = {
     ALLWAYS: `
         ➤📁 /view/src
         │
-        ├──📁 jsx
+        ├──📁 js/jsx
         │   │
         │   ├──📄 MUI_INIT.jsx
         │   └──📄 global.jsx
         │
         ├──📁 css
         │   │
-        ╧   └──🎨 global.css
+        ╧   └──🎨 main.css
     `,
 }
