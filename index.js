@@ -20,7 +20,7 @@ const io = new Server(server);
 
 app.use(cors()); // Permitir solicitudes de diferentes dominios
 app.use(express.json()); // Para parsear JSON
-app.use(express.static(path.join(global.__pathapp__, "client/build")));
+app.use(express.static(path.join(global.__pathapp__, "client", "build")));
 app.set("port", port);
 
 const packexpress = { app, pg, server, io };
