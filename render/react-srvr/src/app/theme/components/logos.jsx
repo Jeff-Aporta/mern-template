@@ -39,7 +39,7 @@ function LOAD_IMG_SZS(params) {
     <img src={`${PUBLIC_URL}/${imageUrl}`} width={`${width}px`} {...p} alt="" />
   );
   if (href) {
-    return <a href={href}>{img}</a>;
+    return <a href={href} tabIndex={0}>{img}</a>;
   }
   return img;
 }

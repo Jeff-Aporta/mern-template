@@ -10,11 +10,18 @@ import CSScmds from "../../../../js/CSScmds";
 
 const hideIcon = 500;
 
+const claseBoton = CSScmds({
+  code: `600px>x>1000px?{scale:(0.8,0.9,1)}`,
+  clss: "to-right-center ws-nowrap",
+});
+
+const claseIconoBoton = CSScmds({ code: `x<${hideIcon}px?{display:(none,)}` });
+
 export default Menu;
 
 function Menu() {
   const { pathname } = window.location;
-  const inLogin = pathname.toLowerCase().endsWith("/unlog/login");
+  const inLogin = pathname.toLowerCase().endsWith("/auth/login");
 
   return (
     <Paper elevation={0} className="menu-top">
@@ -39,12 +46,10 @@ function ButtonSignup() {
     <Button
       variant="contained"
       color="atentionBlue"
-      href="/unlog/signup"
+      href="/auth/signup"
+      className={claseBoton}
       startIcon={
-        <FontAwesomeIcon
-          icon={faUserEdit}
-          className={CSScmds({ code: `x<${hideIcon}px?{display:(none,)}` })}
-        />
+        <FontAwesomeIcon icon={faUserEdit} className={claseIconoBoton} />
       }
     >
       Registrate
@@ -57,17 +62,9 @@ function ButtonLogin() {
     <Button
       variant="contained"
       color="atentionGreen"
-      href="/unlog/login"
-      className={CSScmds({
-        code: `600px>x>1000px?{scale:(0.8,0.9,1)}`,
-        clss: "to-right-center ws-nowrap",
-      })}
-      startIcon={
-        <FontAwesomeIcon
-          icon={faUser}
-          className={CSScmds({ code: `x<${hideIcon}px?{display:(none,)}` })}
-        />
-      }
+      href="/auth/login"
+      className={claseBoton}
+      startIcon={<FontAwesomeIcon icon={faUser} className={claseIconoBoton} />}
     >
       Iniciar sesión
     </Button>

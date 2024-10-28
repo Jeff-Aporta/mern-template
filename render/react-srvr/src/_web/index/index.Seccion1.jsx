@@ -51,6 +51,7 @@ function Seccion1() {
             variant="contained"
             size="large"
             color="atentionGreen"
+            href="/auth/login"
             startIcon={
               <FontAwesomeIcon
                 icon={faUser}
@@ -64,6 +65,7 @@ function Seccion1() {
             variant="contained"
             size="large"
             color="atentionBlue"
+            href="/auth/signup"
             startIcon={
               <FontAwesomeIcon
                 icon={faUserEdit}

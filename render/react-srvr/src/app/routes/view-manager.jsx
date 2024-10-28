@@ -1,3 +1,6 @@
+import React from "react";
+
+import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter, useParams } from "react-router-dom";
 import componentsMap from "./mapfiles-jsx";
 
@@ -23,7 +26,7 @@ function RouteComponent() {
 
 let pattern = "";
 
-const structure = [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <RouteComponent />,
@@ -35,8 +38,6 @@ const structure = [
       element: <RouteComponent />,
     };
   }),
-];
+]);
 
-const router = createBrowserRouter(structure);
-
-export default router;
+export default () => <RouterProvider router={router} />;

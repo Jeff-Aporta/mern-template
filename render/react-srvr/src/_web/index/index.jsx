@@ -1,19 +1,17 @@
 import React from "react";
 
-import "../../app/scss/main.scss";
-
-import Footer from "../../app/theme/components/footer/footer.jsx";
 import Seccion1 from "./index.Seccion1.jsx";
 import Seccion2 from "./index.Seccion2.jsx";
 
-export default Content;
+import { Default } from "../../app/theme/templates.jsx";
 
-function Content() {
+export default Index;
+
+function Index() {
   return (
-    <div>
+    <Default>
       <Seccion1 />
       <Seccion2 />
-      <Footer />
-    </div>
+    </Default>
   );
 }

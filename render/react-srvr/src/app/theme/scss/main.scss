@@ -1,7 +1,8 @@
 @import "coleccion1.scss";
 @import "fx.scss";
+@import "colors.scss";
 
-@each $value in (flex, none, block) {
+@each $value in (flex, none, block, inline-block) {
   .d-#{$value} {
     display: $value;
   }
@@ -43,9 +44,17 @@
   }
 }
 
+@for $i from 11 through 50 {
+  .fs-#{$i * 2}px {
+    font-size: #{$i * 2}px;
+  }
+}
 @for $i from 1 through 20 {
   .w-#{$i * 50}px {
     width: #{$i * 50}px;
+  }
+  .h-#{$i * 50}px {
+    height: #{$i * 50}px;
   }
 }
 
@@ -58,7 +67,10 @@
     opacity: 1 / $i;
   }
 
-  .br-#{$i * 10}px {
-    border-radius: #{$i * 10}px !important;
+  .br-#{$i * 5}px {
+    border-radius: #{$i * 5}px !important;
+  }
+  .br-1100-#{$i * 5}px {
+    border-radius: #{$i * 5}px #{$i * 5}px 0 0;
   }
 }

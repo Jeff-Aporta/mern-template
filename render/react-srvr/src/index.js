@@ -1,5 +1,3 @@
 import ReactDOM from "react-dom/client";
-
-import { Default } from "./app/theme/main";
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Default />);
+import View from "./app/routes/view-manager";
+ReactDOM.createRoot(document.getElementById("root")).render(<View />);

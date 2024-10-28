@@ -1,0 +1,5 @@
+@each $color in (white, dodgerblue, skyblue) {
+  .bg-#{$color} {
+    background-color: $color;
+  }
+}
