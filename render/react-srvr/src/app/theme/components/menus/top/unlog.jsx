@@ -26,7 +26,7 @@ function Menu() {
              width:[150px, 250px];
             }
           `,
-          extra: "bright-hover",
+          clss: "bright-hover-1-5",
         })}
       />
       <div>{inLogin ? <ButtonSignup /> : <ButtonLogin />}</div>
@@ -47,7 +47,7 @@ function ButtonSignup() {
         />
       }
     >
-      <span className="ab--tt-uppercase">Registrate</span>
+      Registrate
     </Button>
   );
 }

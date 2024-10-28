@@ -1,4 +1,5 @@
 @import "coleccion1.scss";
+@import "fx.scss";
 
 @each $value in (flex, none, block) {
   .d-#{$value} {
