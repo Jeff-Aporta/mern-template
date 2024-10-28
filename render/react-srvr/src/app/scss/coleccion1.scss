@@ -1,0 +1,39 @@
+.content-container {
+  padding: 15px;
+}
+
+.of-contain {
+  object-fit: contain;
+}
+
+.tw-balance {
+  text-wrap: balance;
+}
+
+.d-center {
+  @extend .d-flex;
+  @extend .jc-c;
+  @extend .ai-c;
+}
+
+.d-flex-col {
+  @extend .d-flex;
+  @extend .flex-column;
+}
+
+.d-flex-col-center {
+  @extend .d-center;
+  @extend .flex-column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.to-right-center {
+  transform-origin: 100% center;
+}
+
+.ws-nowrap{
+  white-space: nowrap;
+}

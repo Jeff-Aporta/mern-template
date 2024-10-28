@@ -2,44 +2,74 @@ import "./unlog.css";
 
 import { Button, Paper } from "@mui/material";
 
-import { LogoBanner, Logo404 } from "../../logos";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faUserEdit } from "@fortawesome/free-solid-svg-icons";
 
-export default () => {
+import { LogoBanner } from "../../logos";
+import CSScmds from "../../../../js/CSScmds";
+
+const hideIcon = 500;
+
+export default Menu;
+
+function Menu() {
   const { pathname } = window.location;
   const inLogin = pathname.toLowerCase().endsWith("/unlog/login");
 
   return (
     <Paper elevation={0} className="menu-top">
-      <LogoBanner className="bright-hover" />
-      <div className="right">
-        {inLogin ? <ButtonSignup /> : <ButtonLogin />}
-      </div>
+      <LogoBanner
+        width={250}
+        className={CSScmds({
+          code: `
+            400px<-x->1000px?{
+             width:[150px, 250px];
+            }
+          `,
+          extra: "bright-hover",
+        })}
+      />
+      <div>{inLogin ? <ButtonSignup /> : <ButtonLogin />}</div>
     </Paper>
   );
+}
 
-  function ButtonSignup() {
-    return (
-      <Button
-        variant="contained"
-        color="atentionBlue"
-        endIcon={<i className="fa fa-user-edit" />}
-        href="/unlog/signup"
-      >
-        <span className="ab--tt-uppercase">Registrate</span>
-      </Button>
-    );
-  }
+function ButtonSignup() {
+  return (
+    <Button
+      variant="contained"
+      color="atentionBlue"
+      href="/unlog/signup"
+      startIcon={
+        <FontAwesomeIcon
+          icon={faUserEdit}
+          className={CSScmds({ code: `x<${hideIcon}px?{display:(none,)}` })}
+        />
+      }
+    >
+      <span className="ab--tt-uppercase">Registrate</span>
+    </Button>
+  );
+}
 
-  function ButtonLogin() {
-    return (
-      <Button
-        endIcon={<i className="fa fa-user" />}
-        variant="contained"
-        color="atentionGreen"
-        href="/unlog/login"
-      >
-        <span>Iniciar sesión</span>
-      </Button>
-    );
-  }
-};
+function ButtonLogin() {
+  return (
+    <Button
+      variant="contained"
+      color="atentionGreen"
+      href="/unlog/login"
+      className={CSScmds({
+        code: `600px>x>1000px?{scale:(0.8,0.9,1)}`,
+        clss: "to-right-center ws-nowrap",
+      })}
+      startIcon={
+        <FontAwesomeIcon
+          icon={faUser}
+          className={CSScmds({ code: `x<${hideIcon}px?{display:(none,)}` })}
+        />
+      }
+    >
+      Iniciar sesión
+    </Button>
+  );
+}

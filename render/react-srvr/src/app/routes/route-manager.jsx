@@ -8,14 +8,12 @@ function RouteComponent() {
     .filter(Boolean);
   let K = nodes.join("/");
   if (!componentsMap[K]) {
-    const index = [K, "index"].filter(Boolean).join("/");
-    const homonim = [K, nodes.at(-1)].join("/");
-    if (componentsMap[index]) {
-      K = index;
-    }
-    if (componentsMap[homonim]) {
-      K = homonim;
-    }
+    const F = (Arr) => Arr.filter(Boolean).join("/");
+    const index = F([K, "index"]);
+    const index2 = F([K, "index", "index"]);
+    const homonim = F([K, nodes.at(-1)]);
+    const homonim2 = F([K, nodes.at(-1), nodes.at(-1)]);
+    K = [index, index2, homonim, homonim2].find((i) => componentsMap[i]);
   }
   if (typeof componentsMap[K] == "function") {
     return componentsMap[K]();

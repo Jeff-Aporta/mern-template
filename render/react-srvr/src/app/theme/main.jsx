@@ -10,7 +10,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import MenuTopUnlog from "./components/menus/top/unlog";
 import router from "../routes/route-manager";
 import theme from "./setup-mui";
-import SrcDepend from "../routes/src-depend";
+import SrcDepend from "../js/dependencies";
 
 function Themized({ children }) {
   return (

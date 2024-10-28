@@ -1,0 +1,63 @@
+@import "coleccion1.scss";
+
+@each $value in (flex, none, block) {
+  .d-#{$value} {
+    display: $value;
+  }
+}
+
+@each $value in (row, column) {
+  .flex-#{$value} {
+    flex-direction: $value;
+  }
+}
+
+@each $abrev, $value in (c: center, sb: space-between, se: space-evenly) {
+  .jc-#{$abrev} {
+    justify-content: $value;
+  }
+}
+
+@each $abrev, $value in (c: center, s: start, e: end) {
+  .ai-#{$abrev} {
+    align-items: $value;
+  }
+}
+
+@for $i from 1 through 5 {
+  .gap-#{$i * 10}px {
+    gap: $i * 10px;
+  }
+  .pad-#{$i * 10}px {
+    padding: $i * 10px;
+  }
+}
+
+@for $i from 1 through 12 {
+  .h-#{$i * 10}vh {
+    height: #{$i * 10}vh;
+  }
+  .min-h-#{$i * 10}vh {
+    min-height: #{$i * 10}vh;
+  }
+}
+
+@for $i from 1 through 20 {
+  .w-#{$i * 50}px {
+    width: #{$i * 50}px;
+  }
+}
+
+@for $i from 1 through 10 {
+  .w-#{$i * 10}p {
+    width: $i * 10%;
+  }
+
+  .op-#{$i * 10} {
+    opacity: 1 / $i;
+  }
+
+  .br-#{$i * 10}px {
+    border-radius: #{$i * 10}px !important;
+  }
+}
