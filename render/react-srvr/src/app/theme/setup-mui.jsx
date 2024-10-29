@@ -1,6 +1,7 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const themename = localStorage.getItem("theme") ?? "dark";
+
 const isThemeDark = themename === "dark";
 
 let palette = (() => {
@@ -42,14 +43,17 @@ let palette = (() => {
   };
 })();
 
+const typography = {
+  fontSize: 12,
+  button: {
+    textTransform: "none",
+  },
+};
+
 const theme = responsiveFontSizes(
   isThemeDark
     ? createTheme({
-        typography: {
-          button: {
-            textTransform: "none",
-          },
-        },
+        typography,
         palette: {
           mode: "dark",
           background: {
@@ -60,6 +64,7 @@ const theme = responsiveFontSizes(
         },
       })
     : createTheme({
+        typography,
         palette: {
           mode: "light",
           ...palette,

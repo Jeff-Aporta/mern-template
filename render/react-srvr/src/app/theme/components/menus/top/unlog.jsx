@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faUserEdit } from "@fortawesome/free-solid-svg-icons";
 
 import { LogoBanner } from "../../logos";
-import CSScmds from "../../../../js/CSScmds";
+import CSScmds from "../../../../js/CSScmds/CSScmds";
 
 const hideIcon = 500;
 

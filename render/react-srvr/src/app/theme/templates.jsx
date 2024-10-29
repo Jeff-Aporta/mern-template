@@ -10,8 +10,6 @@ import Footer from "./components/footer/footer.jsx";
 import MenuTopUnlog from "./components/menus/top/unlog.jsx";
 
 import theme from "./setup-mui.jsx";
-import SrcDepend from "../js/dependencies.js";
-
 
 const minH = "min-h-80vh";
 
@@ -27,7 +25,6 @@ function Main({ children }) {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <SrcDepend />
         {children}
       </ThemeProvider>
     );

@@ -28,6 +28,7 @@
 
 @for $i from 1 through 5 {
   .gap-#{$i * 10}px {
+    @extend .d-flex;
     gap: $i * 10px;
   }
   .pad-#{$i * 10}px {
@@ -53,14 +54,28 @@
   .w-#{$i * 50}px {
     width: #{$i * 50}px;
   }
+  .min-w-#{$i * 50}px {
+    min-width: #{$i * 50}px;
+  }
   .h-#{$i * 50}px {
     height: #{$i * 50}px;
+  }
+  .min-h-#{$i * 50}px {
+    min-height: #{$i * 50}px;
   }
 }
 
 @for $i from 1 through 10 {
   .w-#{$i * 10}p {
     width: $i * 10%;
+  }
+
+  .w-#{$i * 10}vw {
+    width: $i * 10vw;
+  }
+
+  .z-index#{$i} {
+    z-index: $i;
   }
 
   .op-#{$i * 10} {

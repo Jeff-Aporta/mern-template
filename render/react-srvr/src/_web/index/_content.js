@@ -1,18 +1,19 @@
 const content = {
   Seccion1: {
     title: "Bienvenido",
-    urlImgApp: "/img/logo/states/app-bg-w=512.png",
+    urlImgApp: "/img/logo/states/app-bg-w=1024.svg",
   },
   Seccion2: {
-    title: "ChatterBox",
-    urlImg: "/img/logo/v1-w=1024.png",
+    title: "Chatterbox",
+    urlImg: "/img/logo/v1-w=1024.svg",
+    bannerurlImg: "/img/logo/texto/v2-w=1024.svg",
     text: [
       `
         una innovadora aplicación de mensajería diseñada para conectar a las
         personas mediante una comunicación fluida y en tiempo real.
       `,
       `
-        Con ChatterBox, puedes disfrutar de chats instantáneos, compartir
+        Con Chatterbox, puedes disfrutar de chats instantáneos, compartir
         multimedia y mantener conversaciones grupales, todo en una interfaz
         intuitiva y amigable.
       `,

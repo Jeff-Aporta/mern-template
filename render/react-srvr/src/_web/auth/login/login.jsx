@@ -18,20 +18,26 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import { DefaultCenter } from "../../../app/theme/templates";
-import CSScmds from "../../../app/js/CSScmds";
 
 import { enter, checkPassword, checkUser } from "./login.checks";
 
 import contenido from "./login.contenido";
-
-const fSInput = "20px";
+import CSScmds from "./../../../app/js/CSScmds/CSScmds";
 
 export default Login;
 
 function Login() {
   return (
     <DefaultCenter>
-      <CardLogin />
+      <div
+        className={CSScmds()
+          .lerpX([320, 500], {
+            padding: [5, 20],
+          })
+          .end()}
+      >
+        <CardLogin />
+      </div>
     </DefaultCenter>
   );
 }
@@ -39,14 +45,12 @@ function Login() {
 function CardLogin() {
   return (
     <Paper
-      className={CSScmds({
-        code: `
-          450px<-x->800px?{
-            width: [380px, 500px];
-          }
-        `,
-        clss: "pad-30px d-inline-block w-500px br-10px",
-      })}
+      className={CSScmds()
+        .lerpX([320, 800], {
+          width: [280, 400],
+          padding: [10, 30],
+        })
+        .end("d-inline-block br-10px")}
     >
       <form action="" onSubmit={() => false}>
         <IconUser />
@@ -113,8 +117,25 @@ function InputsForm() {
 
 function IconUser() {
   return (
-    <div className="d-center">
-      <div className="w-150px h-150px circle bg-skyblue d-center fs-100px">
+    <div className="d-center fw-bolder">
+      <Typography
+        variant="h3"
+        className={CSScmds()
+          .ltY(400, { display: [, "none"] })
+          .end()}
+      >
+        Inicio de sesión
+      </Typography>
+      <div
+        className={CSScmds()
+          .ltY(400, { display: ["none"] })
+          .lerpX([320, 500], {
+            fontSize: [80, 100],
+            width: [120, 200],
+            height: [120, 200],
+          })
+          .end("circle bg-skyblue d-center")}
+      >
         <FontAwesomeIcon icon={faUser} />
       </div>
     </div>
@@ -146,7 +167,7 @@ function Password({ label, id, onChange }) {
         fullWidth
         id={id}
         type={showPassword ? "text" : "password"}
-        sx={{ fontSize: fSInput }}
+        sx={{ fontSize: "20px" }}
         onChange={onChange}
         endAdornment={
           <InputAdornment position="end">

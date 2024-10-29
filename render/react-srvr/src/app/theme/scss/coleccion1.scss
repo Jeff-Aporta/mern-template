@@ -1,9 +1,16 @@
 .content-container {
   padding: 15px;
 }
+.content-container-2 {
+  padding: 30px;
+}
 
 .of-contain {
   object-fit: contain;
+}
+
+.oc-lt{
+  object-position: left top;
 }
 
 .tw-balance {
@@ -14,6 +21,15 @@
   @extend .d-flex;
   @extend .jc-c;
   @extend .ai-c;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.d-flex-wrap{
+  @extend .d-flex;
+  @extend .flex-wrap;
 }
 
 .d-flex-col {
@@ -34,23 +50,27 @@
   transform-origin: 100% center;
 }
 
-.ws-nowrap{
+.ws-nowrap {
   white-space: nowrap;
 }
 
-.tt-uppercase{
+.tt-uppercase {
   text-transform: uppercase;
 }
 
-.h-full{
+.h-full {
   @extend .min-h-100vh;
 }
 
-.square{
+.square {
   aspect-ratio: 1;
 }
 
-.circle{
+.circle {
   @extend .square;
   border-radius: 50%;
+}
+
+.fw-bolder {
+  font-weight: bolder;
 }
