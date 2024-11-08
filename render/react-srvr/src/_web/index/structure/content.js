@@ -1,8 +1,4 @@
 const content = {
-  Seccion1: {
-    title: "Bienvenido",
-    urlImgApp: "/img/logo/states/app-bg-w=1024.svg",
-  },
   Seccion2: {
     title: "Chatterbox",
     urlImg: "/img/logo/v1-w=1024.svg",

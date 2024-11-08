@@ -26,22 +26,21 @@
   }
 }
 
-@for $i from 1 through 5 {
+@for $i from 1 through 8 {
   .gap-#{$i * 10}px {
     @extend .d-flex;
     gap: $i * 10px;
   }
-  .pad-#{$i * 10}px {
-    padding: $i * 10px;
+  .pad-#{$i * 5}px {
+    padding: $i * 5px;
   }
-}
-
-@for $i from 1 through 12 {
-  .h-#{$i * 10}vh {
-    height: #{$i * 10}vh;
+  .padw-#{$i * 5}px {
+    padding-left: $i * 5px;
+    padding-right: $i * 5px;
   }
-  .min-h-#{$i * 10}vh {
-    min-height: #{$i * 10}vh;
+  .padh-#{$i * 5}px {
+    padding-top: $i * 5px;
+    padding-bottom: $i * 5px;
   }
 }
 
@@ -50,18 +49,27 @@
     font-size: #{$i * 2}px;
   }
 }
-@for $i from 1 through 20 {
+@for $i from 1 through 10 {
+  .fw-#{$i * 100} {
+    font-weight: #{$i * 100};
+  }
   .w-#{$i * 50}px {
     width: #{$i * 50}px;
   }
   .min-w-#{$i * 50}px {
     min-width: #{$i * 50}px;
   }
-  .h-#{$i * 50}px {
-    height: #{$i * 50}px;
+  .max-w-#{$i * 50}px {
+    max-width: #{$i * 50}px;
   }
   .min-h-#{$i * 50}px {
     min-height: #{$i * 50}px;
+  }
+  .min-h-#{$i * 20}vh {
+    min-height: #{$i * 20}vh;
+  }
+  .max-h-#{$i * 50}px {
+    max-height: #{$i * 50}px;
   }
 }
 
@@ -79,7 +87,7 @@
   }
 
   .op-#{$i * 10} {
-    opacity: 1 / $i;
+    opacity: $i / 10;
   }
 
   .br-#{$i * 5}px {

@@ -11,3 +11,16 @@
     filter: brightness(1.5);
   }
 }
+
+.rotate-left{
+  animation: rotate-left 12s infinite linear;
+}
+
+@keyframes rotate-left {
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(-360deg);
+  }
+}

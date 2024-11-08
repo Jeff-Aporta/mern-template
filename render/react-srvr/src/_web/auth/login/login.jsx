@@ -13,8 +13,6 @@ import {
   Link,
 } from "@mui/material";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import { DefaultCenter } from "../../../app/theme/templates";
@@ -22,7 +20,9 @@ import { DefaultCenter } from "../../../app/theme/templates";
 import { enter, checkPassword, checkUser } from "./login.checks";
 
 import contenido from "./login.contenido";
-import CSScmds from "./../../../app/js/CSScmds/CSScmds";
+import fluidCSS from "fluid-css-lng";
+
+import { Password } from "../../../app/theme/components/repetitives";
 
 export default Login;
 
@@ -30,7 +30,7 @@ function Login() {
   return (
     <DefaultCenter>
       <div
-        className={CSScmds()
+        className={fluidCSS()
           .lerpX([320, 500], {
             padding: [5, 20],
           })
@@ -45,7 +45,7 @@ function Login() {
 function CardLogin() {
   return (
     <Paper
-      className={CSScmds()
+      className={fluidCSS()
         .lerpX([320, 800], {
           width: [280, 400],
           padding: [10, 30],
@@ -120,14 +120,14 @@ function IconUser() {
     <div className="d-center fw-bolder">
       <Typography
         variant="h3"
-        className={CSScmds()
+        className={fluidCSS()
           .ltY(400, { display: [, "none"] })
           .end()}
       >
         Inicio de sesión
       </Typography>
       <div
-        className={CSScmds()
+        className={fluidCSS()
           .ltY(400, { display: ["none"] })
           .lerpX([320, 500], {
             fontSize: [80, 100],
@@ -136,52 +136,8 @@ function IconUser() {
           })
           .end("circle bg-skyblue d-center")}
       >
-        <FontAwesomeIcon icon={faUser} />
+        <i className="fa fa-user" />
       </div>
     </div>
-  );
-}
-
-function Password({ label, id, onChange }) {
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleMouseUpPassword = (event) => {
-    event.preventDefault();
-  };
-
-  return (
-    <FormControl
-      sx={{ overflow: "hidden" }}
-      variant="filled"
-      className="br-1100-10px"
-      fullWidth
-    >
-      <InputLabel htmlFor={id}>{label}</InputLabel>
-      <FilledInput
-        fullWidth
-        id={id}
-        type={showPassword ? "text" : "password"}
-        sx={{ fontSize: "20px" }}
-        onChange={onChange}
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
-              onMouseUp={handleMouseUpPassword}
-              edge="end"
-            >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
-            </IconButton>
-          </InputAdornment>
-        }
-      />
-    </FormControl>
   );
 }

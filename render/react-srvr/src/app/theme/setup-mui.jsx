@@ -36,6 +36,10 @@ let palette = (() => {
       main: "#00FA9A",
       contrastText: uncontrastText,
     },
+    atentionDeeppink: {
+      main: "#FF52AE",
+      contrastText: uncontrastText,
+    },
     white,
     black,
     contrast: isThemeDark ? white : black,

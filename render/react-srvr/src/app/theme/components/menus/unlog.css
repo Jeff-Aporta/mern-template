@@ -1,0 +1,11 @@
+:root{
+  --border-section: rgba(255, 63, 153, 0.3);
+}
+
+.menu-top {
+  border-bottom: 3px solid var(--border-section);
+}
+
+.footer {
+  border-top: 3px solid var(--border-section);
+}

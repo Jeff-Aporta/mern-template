@@ -7,9 +7,11 @@ import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 
 import Footer from "./components/footer/footer.jsx";
-import MenuTopUnlog from "./components/menus/top/unlog.jsx";
+import MenuTopUnlog from "./components/menus/unlog.jsx";
 
 import theme from "./setup-mui.jsx";
+
+import { $ } from "./components/fluids.jsx";
 
 const minH = "min-h-80vh";
 
@@ -43,7 +45,9 @@ function DefaultTmplt({ children }) {
   return (
     <Main>
       <MenuTopUnlog />
-      {children}
+      <$ variant="normal" className="tw-balance">
+        {children}
+      </$>
       <Footer />
     </Main>
   );

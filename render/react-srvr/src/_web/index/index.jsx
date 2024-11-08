@@ -1,17 +1,19 @@
 import React from "react";
 
-import _Seccion1 from "./_Seccion1.jsx";
-import _Seccion2 from "./_Seccion2.jsx";
+import Seccion_1 from "./structure/seccion-1.jsx";
+import Seccion_2 from "./structure/seccion-2.jsx";
 
 import { Default } from "../../app/theme/templates.jsx";
+import { $h } from "../../app/theme/components/fluids.jsx";
 
 export default Index;
 
 function Index() {
   return (
     <Default>
-      <_Seccion1 />
-      <_Seccion2 />
+      <Seccion_1 />
+      <$h/>
+      <Seccion_2 />
     </Default>
   );
 }
