@@ -8,7 +8,7 @@
     "watch": "node --watch index",
     "dev": "npm-run-all --parallel sass-dev watch",
     "install-dev": "npm install && npm install --prefix ./render/react-srvr",
-    "install-min": "npm install",
+    "install-min": "npm install --production",
     "build-react": "npm run build --prefix ./render/react-srvr",
     "sass-cli": "sass --watch --no-source-map render/react-cli-ejs/src/scss:render/react-cli-ejs/src/css",
     "sass-srvr": "sass --watch --no-source-map render/react-srvr/public/scss:render/react-srvr/public/css",
